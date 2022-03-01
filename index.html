@@ -10,10 +10,44 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- extrenal css link -->
     <link rel="stylesheet" href="./css/style.css">
+    <!-- Customization Code for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
 
 </head>
 
+
+
+
 <body>
+    <nav class="h-[100px] w-[100%] flex items-center justify-around mx-auto bg-white ">
+        <div class="nav-left h-full flex items-center w-[40%]">
+            <img class="h-full w-[50%] object-cover" src="./images/mobile finder logo.jpg" alt="" srcset="">
+            <h1 class="text-3xl text-[#00293B] font-bold">MOBILE FINDER</h1>
+        </div>
+        <div class="nav-right">
+            <ul class="uppercase font-bold text-[#00293B] flex gap-x-5 ">
+                <li>Home</li>
+                <li>Buy</li>
+                <li>contact</li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="search-section w-full flex justify-center mt-10">
+            <input class="bg-black mr-10 h-[40px] w-[300px]" type="text" name="" id="">
+            <button>Search</button>
+        </div>
+    </main>
 
 
     <script src="./js/app.js"></script>
