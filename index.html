@@ -44,8 +44,28 @@
     </nav>
     <main>
         <div class="search-section w-full flex justify-center mt-10">
-            <input class="bg-black mr-10 h-[40px] w-[300px]" type="text" name="" id="">
-            <button>Search</button>
+            <input class="bg-white px-8 border-2 rounded-md border-[#00293B] mr-10 h-[50px] w-[400px]" type="text"
+                placeholder="Enter Your desired Phone" name="" id="searched-text">
+            <button id="search-button" onclick="showResult()"
+                class="bg-[#1390c5] text-2xl hover:border-[#1390c5] hover:bg-white hover:text-2xl hover:border-2 hover:text-[#1390c5] text-white rounded-lg py-3 px-9">Search</button>
+        </div>
+        <div class="searchResults mx-5 my-10 grid grid-cols-3 gap-x-5 gap-y-8" id="searchResult">
+
+            <div class="searchResult">
+
+            </div>
+            <div class="searchResult">
+
+            </div>
+            <div class="searchResult">
+
+            </div>
+            <div class="searchResult">
+
+            </div>
+            <div class="searchResult">
+
+            </div>
         </div>
     </main>
 

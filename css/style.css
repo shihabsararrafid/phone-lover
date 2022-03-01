@@ -5,3 +5,10 @@ body{
     background-repeat: no-repeat;
 
 }
+
+.searchResult{
+    border: 1px solid #1390c5;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 2px #1390c5;
+}
