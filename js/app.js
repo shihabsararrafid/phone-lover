@@ -31,7 +31,7 @@ const showResult = (items) => {
         const divContainer = document.getElementById('searchResult-container');
         divContainer.textContent = "";
         for (const singItem of items) {
-            // console.log(singItem)
+
 
             const div = document.createElement('div');
             div.classList.add("searchResult");
@@ -75,12 +75,22 @@ const showDetail = details => {
     console.log(details)
     const detailDivContainer = document.getElementById('details-section');
     detailDivContainer.textContent = "";
-    const detailDiv = document.createElement('div');
-    detailDiv.classList.add('detail-phone')
+    // const detailDiv = document.createElement('div');
+    //detailDiv.classList.add('detail-phone')
+    const sensorSection = document.createElement('div');
     const sensors = details.mainFeatures.sensors;
+    for (let sensor of sensors) {
+        const p = document.createElement('p');
+        p.classList.add('sensorPara');
+        p.innerHTML = `${sensor}, `;
+        sensorSection.appendChild(p);
 
 
-    detailDiv.innerHTML = `
+    }
+
+
+    detailDivContainer.innerHTML = `
+    <div class="detail-phone w-full md:w-[60%] h-[auto]">
     <img class="block my-6 mx-auto"  src="${details.image}" alt="" srcset="">
     <p class="text-3xl text-center font-semibold">Name: ${details.name}</p>
     
@@ -90,14 +100,22 @@ const showDetail = details => {
     <p class="text-xl text-center font-semibold">DisplaySize: ${details.mainFeatures.displaySize}</p>
     <p class="text-xl text-center font-semibold">Chipset: ${details.mainFeatures.chipSet}</p>
     <p class="text-xl text-center font-semibold">Memory: ${details.mainFeatures.memory}</p>
-    <p class="text-xl text-center font-semibold">Sensors: ${sensors}</p>
-   
+    <p class="text-xl text-center w-[90%] font-semibold">Sensor:
+    \n
+     ${sensors.join(', </br>')}</p>
+
+        
+    
    
     
-  
+   
+    </div>
+   
     `
-    detailDivContainer.appendChild(detailDiv);
-    console.log(detailDiv);
+
+    // detailDivContainer.appendChild();
+    // detailDivContainer.appendChild(detailDiv);
+    // console.log(detailDiv);
 
 
 }

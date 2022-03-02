@@ -42,7 +42,7 @@
 
 
         <!-- navigation rigth part -->
-        <div class="nav-right">
+        <div class="nav-right hidden lg:block">
             <ul class="uppercase font-bold text-[#00293B] flex gap-x-5 ">
                 <li>Home</li>
                 <li>Buy</li>
@@ -57,46 +57,31 @@
 
     <main>
         <!-- input field and search button section starts here -->
-        <div class="search-section w-full flex justify-center mt-10">
-            <input class="bg-white outline-none px-8 border-2 rounded-md border-[#1299d3] mr-10 h-[50px] w-[400px]"
+        <div class="search-section w-full md:flex-row flex-col flex justify-center mt-10">
+            <input
+                class="bg-white outline-none px-8 border-2 rounded-md border-[#1299d3] mr-10 h-[50px] w-full block md:inline md:w-[400px]"
                 type="text" placeholder="Enter Your desired Phone" name="" id="searched-text">
+            <br>
             <button id="search-button" onclick="getInputText()"
-                class="bg-[#1390c5] duration-500 text-2xl hover:border-[#1390c5] hover:bg-white hover:text-2xl hover:border-2 hover:text-[#1390c5] text-white rounded-lg py-3 px-9">Search</button>
+                class="bg-[#1390c5] block duration-500 text-2xl hover:border-[#1390c5] hover:bg-white hover:text-2xl hover:border-2 hover:text-[#1390c5] text-white rounded-lg py-3 px-9">Search</button>
         </div>
 
 
         <!-- display details section -->
         <div id="details-section">
-            <!-- <div class="detail-phone">
 
-            </div> -->
 
         </div>
 
         <!-- display result section -->
-        <div class="searchResults mx-14 my-10 grid grid-cols-3 gap-x-5 gap-y-8" id="searchResult-container">
+        <div class="searchResults mx-14 my-10 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-x-5 gap-y-8"
+            id="searchResult-container">
 
-            <!-- <div class="searchResult">
-                <img class="block mx-auto" src="" alt="" srcset="">
-                <h1 class="text-3xl font-semibold"></h1>
-                <p></p>
-
-            </div>
-            <div class="searchResult">
-
-            </div>
-            <div class="searchResult">
-
-            </div>
-            <div class="searchResult">
-
-            </div>
-            <div class="searchResult">
-
-            </div> -->
 
 
         </div>
+
+        <!-- display no phone found if there is no phone -->
         <div id="noPhone">
 
 
