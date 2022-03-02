@@ -65,28 +65,31 @@ const getDetailUrl = (id) => {
 
     fetch(url)
         .then(res => res.json())
-        .then(data => showDetail(data.data))
+        .then(data => showDetail(data))
 }
 
 
 
 // function for showing details of phones
-const showDetail = details => {
-    console.log(details)
+const showDetail = info => {
+    const details = info.data;
+
     const detailDivContainer = document.getElementById('details-section');
     detailDivContainer.textContent = "";
-    // const detailDiv = document.createElement('div');
-    //detailDiv.classList.add('detail-phone')
-    const sensorSection = document.createElement('div');
-    const sensors = details.mainFeatures.sensors;
-    for (let sensor of sensors) {
-        const p = document.createElement('p');
-        p.classList.add('sensorPara');
-        p.innerHTML = `${sensor}, `;
-        sensorSection.appendChild(p);
-
-
+    // showing others object 
+    const othersObject = details.others;
+    const othersKey = Object.keys(othersObject)
+    const othersObjectArray = [];
+    for (key of othersKey) {
+        let item = `${key} :${othersObject[key]}`
+        othersObjectArray.push(item)
     }
+
+
+    //console.log(info)
+
+    const sensors = details.mainFeatures.sensors;
+
 
 
     detailDivContainer.innerHTML = `
@@ -100,9 +103,13 @@ const showDetail = details => {
     <p class="text-xl text-center font-semibold">DisplaySize: ${details.mainFeatures.displaySize}</p>
     <p class="text-xl text-center font-semibold">Chipset: ${details.mainFeatures.chipSet}</p>
     <p class="text-xl text-center font-semibold">Memory: ${details.mainFeatures.memory}</p>
+
     <p class="text-xl text-center w-[90%] font-semibold">Sensor:
     \n
      ${sensors.join(', </br>')}</p>
+    <p class="text-xl text-center w-[90%] font-semibold">Others:</br>
+ ${othersObjectArray.join('</br>')}
+    </p>
 
         
     
@@ -113,9 +120,7 @@ const showDetail = details => {
    
     `
 
-    // detailDivContainer.appendChild();
-    // detailDivContainer.appendChild(detailDiv);
-    // console.log(detailDiv);
+
 
 
 }
