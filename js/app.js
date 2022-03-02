@@ -1,5 +1,7 @@
 // function for getting the input from text and fetching the url according the search result
+const spinnerImage = document.getElementById('spinner-img')
 const getInputText = () => {
+    spinnerImage.style.display = 'block'
     const searchedTextElement = document.getElementById('searched-text');
     const searchedText = searchedTextElement.value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchedText}`
@@ -56,7 +58,7 @@ const showResult = (items) => {
         }
     }
 
-
+    spinnerImage.style.display = 'none'
 }
 
 
