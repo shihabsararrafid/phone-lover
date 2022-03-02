@@ -77,16 +77,27 @@ const showDetail = info => {
     const detailDivContainer = document.getElementById('details-section');
     detailDivContainer.textContent = "";
     // showing others object 
-    const othersObject = details.others;
-    const othersKey = Object.keys(othersObject)
-    const othersObjectArray = [];
-    for (key of othersKey) {
-        let item = `${key} :${othersObject[key]}`
-        othersObjectArray.push(item)
+    const showOther = () => {
+        const othersObjectArray = [];
+        if (typeof (details.others) === "undefined") {
+            return "No others information available";
+        }
+        else {
+            const othersObject = details.others;
+            const othersKey = Object.keys(othersObject)
+
+            for (key of othersKey) {
+                let item = `${key} :${othersObject[key]}`
+                othersObjectArray.push(item)
+            }
+            return othersObjectArray.join('</br>');
+
+
+        }
     }
 
 
-    //console.log(info)
+
 
     const sensors = details.mainFeatures.sensors;
 
@@ -107,9 +118,11 @@ const showDetail = info => {
     <p class="text-xl text-center w-[90%] font-semibold">Sensor:
     \n
      ${sensors.join(', </br>')}</p>
-    <p class="text-xl text-center w-[90%] font-semibold">Others:</br>
- ${othersObjectArray.join('</br>')}
+  <p id="showOther" class="text-xl  text-center w-[90%] font-semibold">Others:</br>
+ ${showOther()}  
     </p>
+    
+
 
         
     
@@ -121,7 +134,7 @@ const showDetail = info => {
     `
 
 
-
+    // console.log(detailDivContainer);
 
 }
 
