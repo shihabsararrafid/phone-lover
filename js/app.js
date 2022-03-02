@@ -14,6 +14,8 @@ const getInputText = () => {
 const showResult = (items) => {
     const divContainer = document.getElementById('searchResult-container');
     divContainer.textContent = "";
+
+
     // condition if there is no phone
     if (items.length === 0) {
 
@@ -30,7 +32,7 @@ const showResult = (items) => {
     else {
         const divContainer = document.getElementById('searchResult-container');
         divContainer.textContent = "";
-        for (const singItem of items) {
+        for (const singItem of items.slice(0, 20)) {
 
 
             const div = document.createElement('div');
