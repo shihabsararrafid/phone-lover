@@ -76,7 +76,9 @@ const showDetail = info => {
 
     const detailDivContainer = document.getElementById('details-section');
     detailDivContainer.textContent = "";
-    // showing others object 
+
+
+    //function for  showing others object 
     const showOther = () => {
         const othersObjectArray = [];
         if (typeof (details.others) === "undefined") {
@@ -95,6 +97,15 @@ const showDetail = info => {
 
         }
     }
+    // function for showing the release date
+    const showReleaseDate = () => {
+        if (details.releaseDate === '') {
+            return 'No release Date found';
+        }
+        else {
+            return details.releaseDate;
+        }
+    }
 
 
 
@@ -108,7 +119,7 @@ const showDetail = info => {
     <img class="block my-6 mx-auto"  src="${details.image}" alt="" srcset="">
     <p class="text-3xl text-center font-semibold">Name: ${details.name}</p>
     
-    <p class="text-xl text-center font-semibold">Release Date: ${details.releaseDate}</p>
+    <p class="text-xl text-center font-semibold">Release Date: ${showReleaseDate()}</p>
     <p class="text-xl text-center font-semibold">Storage: ${details.mainFeatures.storage}</p>
 
     <p class="text-xl text-center font-semibold">DisplaySize: ${details.mainFeatures.displaySize}</p>
@@ -132,10 +143,6 @@ const showDetail = info => {
     </div>
    
     `
-
-
-    // console.log(detailDivContainer);
-
 }
 
 
