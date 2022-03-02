@@ -3,14 +3,16 @@ const spinnerImage = document.getElementById('spinner-img')
 const getInputText = () => {
     spinnerImage.style.display = 'block'
     const searchedTextElement = document.getElementById('searched-text');
-    const searchedText = searchedTextElement.value;
+    const searchedText = searchedTextElement.value.toLowerCase();
+    const detailDivContainer = document.getElementById('details-section');
+    detailDivContainer.textContent = "";
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchedText}`
     fetch(url)
         .then(res => res.json())
         .then(data => showResult(data.data))
     searchedTextElement.value = "";
 }
-
+let slicedIndex = 20;
 
 // function showing the result on basis of given value from input text
 const showResult = (items) => {
@@ -30,11 +32,16 @@ const showResult = (items) => {
         
         `
     }
+
+
+
     // condition if the search result is valid
     else {
         const divContainer = document.getElementById('searchResult-container');
         divContainer.textContent = "";
-        for (const singItem of items.slice(0, 20)) {
+        // function for show all 
+
+        for (const singItem of items.slice(0, slicedIndex)) {
 
 
             const div = document.createElement('div');
@@ -59,11 +66,14 @@ const showResult = (items) => {
     }
 
     spinnerImage.style.display = 'none'
+    const showButton = document.getElementById('showAllBtn');
+    showButton.style.display = 'block';
 }
 
 
 // function for getting the url for details  of phones 
 const getDetailUrl = (id) => {
+    spinnerImage.style.display = 'block';
 
     url = `https://openapi.programming-hero.com/api/phone/${id}`
 
@@ -100,6 +110,7 @@ const showDetail = info => {
 
 
         }
+
     }
     // function for showing the release date
     const showReleaseDate = () => {
@@ -133,8 +144,8 @@ const showDetail = info => {
     <p class="text-xl text-center w-[90%] font-semibold">Sensor:
     \n
      ${sensors.join(', </br>')}</p>
-  <p id="showOther" class="text-xl  text-center w-[90%] font-semibold">Others:</br>
- ${showOther()}  
+   <p id="showOther" class="text-xl  text-center w-[90%] font-semibold">Others:</br>
+   ${showOther()}  
     </p>
     
 
@@ -147,6 +158,8 @@ const showDetail = info => {
     </div>
    
     `
+    spinnerImage.style.display = 'none';
+
 }
 
 
